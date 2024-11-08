@@ -21,8 +21,12 @@
     }
 
     #txBARU{
-      font-size: 40px;
-      background-color: aquamarine;
+      font-size: 25px;
+      color:whitesmoke;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      background-color: blue;
+      display:flex;
+      justify-content: center;
     }
 
     .cardbody{
@@ -30,7 +34,7 @@
     }
     .cardfooter{
       padding: 8px;
-      background-color: pink;
+      background-color: blue;
       display: flex;
       justify-content: right; 
     }
@@ -46,9 +50,9 @@
     button{
       border:none;
       border-radius: 25px;
-      background-color: blue;
+      background-color: pink;
       padding: 8px 20px;
-      color: white;
+      color: blue ;
       font-weight: bold;
     }
   </style>
@@ -58,18 +62,26 @@
 
     <div class="card">
 
- 
-  <h1 id="txBARU">Ruang Bangun Persegi</h1>
-  <div class="cardbody">
+      <marquee id="txBARU"behavior="scroll" direction="left">
+        Hitunglah Luas dan Keliling Segitigamu:v
+    </marquee>
+    <div class="cardbody">
+    
+    <form>
+      <label>Nilai Alas (Meter)</label>
+        <input type="text" name="txALAS" id="txALAS">
+      <label>Nilai Tinggi (Meter)</label>
+        <input type="text" name="txTINGGI" id="txTINGGI">
+      <label>Nilai Sisi A (Meter)</label>
+        <input type="text" name="txSISI_A" id="txSISI_A">
+      <label>Nilai Sisi B (Meter)</label>
+        <input type="text" name="txSISI_B" id="txSISI_B">
+      <label>Nilai Sisi C (Meter)</label>
+        <input type="text" name="txSISI_C" id="txSISI_C">
+  
+    </form>
 
-  <form>
-    <label>Nilai Panjang (Meter)</label>
-      <input type="text" name="txPANJANG" id="txPANJANG">
-    <label>Nilai Lebar (Meter)</label>
-      <input type="text" name="txLEBAR" id="txLEBAR">
-  </form>
-
-  <div id="txHASIL">Nilai Luas dan Keliling</div>
+    <div id="txHASIL">Nilai Luas dan Keliling</div>
 </div>
 
   <div class="cardfooter">
@@ -81,22 +93,28 @@
   <script>
     function pesan(){
       //alert("Belajar Java Script")
-      let PJ = document.getElementById("txPANJANG").value
-      let LB = document.getElementById("txLEBAR").value
+        let alas = parseFloat(document.getElementById("txALAS").value);
+        let tinggi = parseFloat(document.getElementById("txTINGGI").value);
+        let sisiA = parseFloat(document.getElementById("txSISI_A").value);
+        let sisiB = parseFloat(document.getElementById("txSISI_B").value);
+        let sisiC = parseFloat(document.getElementById("txSISI_C").value);
 
-      //Proses Hitung Luas
-      let Luas=PJ*LB
-      let PJLB= parseFloat (PJ)+ Number(LB)
-      let Keliling=2*PJLB
+  //Proses Hitung Luas
+      let luas = 0.5 * alas * tinggi;
 
-      let hsl="Hitung Luas Persegi <br> Luas=Panjang X Lebar<br>"
-      hsl +="Luas="+PJ+"M X"+LB+"M<br>"
-      hsl += "Luas="+Luas+"M<sup>2</sup><br><br>"
-      hsl +="Hitung Keliling Persegi <br>"
-      hsl +="Keliling= 2 X (Panjang+Lebar)<br>"
-      hsl +="Keliling= 2 X ("+PJ+"M+"+LB+"M)<br>"
-      hsl +="Keliling= 2 X"+PJLB+ "<br>"
-      hsl +="Keliling="+Keliling+"Meter"
+      
+// Proses Hitung Keliling
+  let keliling = sisiA + sisiB + sisiC;
+
+  let hsl = "Hitung Luas Segitiga <br>";
+        hsl += "Luas = 1/2 X Alas X Tinggi <br>";
+        hsl += "Luas = 1/2 X " + alas + " m X " + tinggi + " m <br>";
+        hsl += "Luas = " + luas.toFixed(2) + " m<sup>2</sup><br><br>";
+        hsl += "Hitung Keliling Segitiga <br>";
+        hsl += "Keliling = Sisi A + Sisi B + Sisi C <br>";
+        hsl += "Keliling = " + sisiA + " m + " + sisiB + " m + " + sisiC + " m <br>";
+        hsl += "Keliling = " + keliling + " m";
+
 
       document.getElementById("txHASIL").innerHTML=hsl;
     }
