@@ -3,6 +3,101 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luas dan Keliling Ruang Bangun Persegi</title>
+  <style>
+    *{
+      font-family: 'Times New Roman', Times, serif;
+    }
+   .tengah{display: flex;
+    justify-content: center;
+   }
+   .card{
+    width: 40%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,blue,0.2);
+    transition: 0.3s;
+
+   }
+   #txBARU{
+    font-size: 35px;
+   }
+   .cardbody{
+    padding: 2px 16px;
+   }
+   .cardfooter{
+    padding: 8px;
+    display: flex; 
+    justify-content: right;
+   }
+   label{
+    font-weight: bold;
+    font-size: 14px;
+   }
+   input[type=text]{
+    width: 100%;
+    padding: 2px;
+    margin: 8px 0px;
+   }
+   button{
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    padding: 8px 20px;
+   }
+  </style>
+</head>
+<body>
+  <div class="tengah">
+  <div class="card">
+    <marquee id="txBARU"behavior="scroll" direction="left">
+      Hitunglah Luas dan Keliling Persegimu:v
+  </marquee>
+  <div class="cardbody">
+  <form>
+    <label>Nilai Panjang (Meter)</label>
+     <input type="text" name="txPANJANG" id="txPANJANG">
+    <label>Nilai Lebar (Meter)</LABEL>
+     <input type="text" name="txLEBAR" id="txLEBAR">
+  </form>
+  <div id="txHASIL_Persegi">Nilai Luas dan Keliling</div>
+  
+  </div>
+  <div class="cardfooter">
+  <button onclick="Pesan()">Hitung Luas dan Keliling</button>
+  </div>
+  </div>
+  </div>
+  <script>
+   function Pesan(){
+   //alert("Latihan JavaScript")
+   let PJ = document.getElementById("txPANJANG").value 
+   let LB = document.getElementById("txLEBAR").value
+   //Proses Hitung Luas
+   let LUAS = PJ*LB
+   let PJLB = (parseFloat(PJ) + Number(LB))
+   let KEL = 2*PJLB
+   let hsl = "Hitung Luas Persegi<br>Luas = Panjang X Lebar<br>"
+   hsl += "Luas = "+PJ+"m X "+LB+"m<br>"
+   hsl += "Luas = "+LUAS+" m<sup>2</sup><br><br>"
+   hsl += "Hitung Keliling Persegi<br>"
+   hsl += "Keliling = 2 X (Panjang+Lebar)<br>"
+   hsl += "Keliling = 2 X (" +PJ+ " m +" +LB+ " m)<br>"
+   hsl += "Keliling = 2 X " +PJLB+ "<br>"
+   hsl += "Keliling = "+KEL+" m <br><br>"
+   document.getElementById("txHASIL_Persegi").innerHTML=hsl
+  }
+  </script>
+</body>
+</html>
+
+<br>
+<br>
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Luas dan Keliling Ruang Bangun</title>
   <style>
     *{
@@ -81,7 +176,7 @@
   
     </form>
 
-    <div id="txHASIL">Nilai Luas dan Keliling</div>
+    <div id="txHASIL_SEGITIGA">Nilai Luas dan Keliling</div>
 </div>
 
   <div class="cardfooter">
@@ -116,7 +211,7 @@
         hsl += "Keliling = " + keliling + " m";
 
 
-      document.getElementById("txHASIL").innerHTML=hsl;
+      document.getElementById("txHASIL_SEGITIGA").innerHTML=hsl;
     }
   </script>
 
